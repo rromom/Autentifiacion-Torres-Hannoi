@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/tailwind.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <title>Hanoi Tower</title>
+</head>
+
+<body class="flex flex-col h-screen justify-between">
+    <header class="bg-my-blue">
+        <nav class="py-2 md:py-4">
+            <div class="container px-4 mx-auto md:flex md:items-center">
+
+                <div class="flex justify-between items-center">
+                    <img src="resources/logo.png" alt="Hannoi Auth" class="w-16 bg-white rounded-full mx-5">
+                    <a href="#" class="font-bold text-xl text-white">UPS</a>
+                    <button class="border border-solid border-solid-white px-3 py-1 rounded text-white opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
+                <i class="fas fa-bars"></i>
+              </button>
+                </div>
+                <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
+                    <a href="login.html" class="p-2 lg:px-4 md:mx-2 text-center border bg-white border-transparent rounded hover:bg-indigo-300 hover:text-white transition-colors duration-300">Login</a>
+                    <a href="register.html" class="p-2 lg:px-4 md:mx-2 text-center border bg-white border-transparent rounded hover:bg-indigo-300 hover:text-white transition-colors duration-300">Registro</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+
+
+
+
+    <div class="hidden sm:block" aria-hidden="true">
+        <div class="py-5">
+            <div class="border-t border-gray-200"></div>
+        </div>
+    </div>
+
+    <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+                <div class="px-4 sm:px-0">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">Datos personales</h3>
+                    <p class="mt-1 text-sm text-gray-600">
+                        Esta informacion solo se usara de modo informativa
+                    </p>
+                </div>
+            </div>
+            <div class="mt-5 md:mt-0 md:col-span-2">
+                <form action="#" method="POST">
+                    <div class="shadow overflow-hidden sm:rounded-md">
+                        <div class="px-4 py-5 bg-blue-100 sm:p-6">
+                            <div class="grid grid-cols-6 gap-6">
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="first_name" class="block text-sm font-medium text-gray-700">Nombres</label>
+                                    <input type="text" placeholder="Juanito Sett" name="first_name" id="first_name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="last_name" class="block text-sm font-medium text-gray-700">Apellidos</label>
+                                    <input type="text" placeholder="Perez Galarza " name="last_name" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label for="email_address" class="block text-sm font-medium text-gray-700">Correo electronico</label>
+                                    <input type="text" placeholder="micorreo@gmail.com" name="email_address" id="email_address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label for="email_address" class="block text-sm font-medium text-gray-700">Numero de cedula</label>
+                                    <input type="text" placeholder="1753543264" name="email_address" id="email_address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="first_name" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                                    <input type="password" name="first_name" id="first_name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="last_name" class="block text-sm font-medium text-gray-700">Confirmar contraseña</label>
+                                    <input type="password" name="last_name" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label for="email_address" class="block text-sm font-medium text-gray-700">Numero de telefono</label>
+                                    <input type="text" placeholder="0984757042" name="email_address" id="email_address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class="col-span-6 sm:col-span-3">
+                                    <label for="first_name" class="block text-sm font-medium text-gray-700">Twiter</label>
+                                    <input type="text" placeholder="@twitter11" name="first_name" id="first_name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Save
+                  </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden sm:block" aria-hidden="true">
+        <div class="py-5">
+            <div class="border-t border-gray-200"></div>
+        </div>
+    </div>
+
+    <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+                <div class="px-4 sm:px-0">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">Residencia</h3>
+                    <p class="mt-1 text-sm text-gray-600">
+                        Informacion sobre su ubicacion geografica
+                    </p>
+                </div>
+            </div>
+            <div class="mt-5 md:mt-0 md:col-span-2">
+                <form action="#" method="POST">
+                    <div class="shadow overflow-hidden sm:rounded-md">
+                        <div class="px-4 py-5 bg-blue-100 space-y-6 sm:p-6">
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium text-gray-700">Pais</label>
+                                <select id="country" name="country" autocomplete="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option>Ecuador</option>
+                    <option>Colombia</option>
+                    <option>Mexico</option>
+                  </select>
+                            </div>
+
+                            <div class="col-span-6">
+                                <label for="street_address" class="block text-sm font-medium text-gray-700">Dirrecion</label>
+                                <input type="text" name="street_address" id="street_address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                                <label for="city" class="block text-sm font-medium text-gray-700">Ciudad</label>
+                                <input type="text" name="city" id="city" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                                <label for="state" class="block text-sm font-medium text-gray-700">Provincia</label>
+                                <input type="text" name="state" id="state" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                                <label for="postal_code" class="block text-sm font-medium text-gray-700">Codigo postal</label>
+                                <input type="text" name="postal_code" id="postal_code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            </div>
+
+                            <fieldset>
+
+                            </fieldset>
+                        </div>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Save
+                  </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+                <div class="px-4 sm:px-0">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">Opciones personales</h3>
+                    <p class="mt-1 text-sm text-gray-600">
+                        Informacion sobre sus gustos para autenticar
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-5 md:mt-0 md:col-span-2">
+                <form action="#" method="POST">
+                    <div class="shadow overflow-hidden sm:rounded-md">
+                        <div class="px-4 py-5 bg-blue-100 space-y-6 sm:p-6">
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium text-gray-700">Figura</label>
+                                <select id="country" name="country" autocomplete="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option>Circulo</option>
+                    <option>Cuadrado</option>
+                    <option>Triangulo</option>
+                  </select>
+                            </div>
+                            <div>
+                                <legend class="text-base font-medium text-gray-900">Escoja un numero</legend>
+                                <p class="text-sm text-gray-500">Este numero es de vital importancia recuerdelo.</p>
+                            </div>
+                            <div class="mt-4 space-y-4">
+                                <div class="flex items-center">
+                                    <input id="push_everything" name="push_notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                    <label for="push_everything" class="ml-3 block text-sm font-medium text-gray-700">
+                      3
+                    </label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="push_email" name="push_notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                    <label for="push_email" class="ml-3 block text-sm font-medium text-gray-700">
+                      4
+                    </label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="push_nothing" name="push_notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                    <label for="push_nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                      5
+                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Save
+                  </button>
+                            </div>
+                        </div>
+                </form>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <footer class="footer bg-my-blue relative pt-1 border-b-2 border-blue-900">
+            <div class="container mx-auto px-6">
+                <div class="mt-5 border-gray-300 flex flex-col items-center">
+                    <div class="sm:w-2/3 text-center py-6">
+                        <p class="text-sm text-white font-bold mb-2">
+                            © 2020 QA
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+</body>
+
+</html>

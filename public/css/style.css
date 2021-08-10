@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'BitBold';
+    src: url('../resources/fonts/BitBold.ttf') format('truetype');
+}
+
+#hanoi-example {
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.bg-my-blue {
+    background-color: #00246E;
+}
