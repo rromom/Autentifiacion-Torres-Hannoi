@@ -24,5 +24,31 @@
         "AbsoluteFilePath": "e:\\Ricardo\\veracode\\Autentifiacion-Torres-Hannoi\\index.js"
       }
     }
+  },
+  {
+    "CWEId": "89",
+    "FlawMatch": {
+      "ProcedureHash": "2161495722",
+      "PrototypeHash": "241343047",
+      "FlawHash": "3756333588",
+      "FlawHashCount": "1",
+      "FlawHashOrdinal": "1",
+      "CauseHash": "61553967",
+      "CauseHashCount": "1",
+      "CauseHashOrdinal": "1",
+      "CauseHash2": "1522093433",
+      "CauseHash2Ordinal": "8"
+    },
+    "Files": {
+      "SourceFile": {
+        "File": "routes-index.js",
+        "Line": "21",
+        "FunctionName": "lambda_3",
+        "QualifiedFunctionName": "lambda_3",
+        "FunctionPrototype": "lambda_3(: any,  : any,  : any, ...) : any",
+        "Scope": "UNKNOWN",
+        "AbsoluteFilePath": "e:\\Ricardo\\veracode\\Autentifiacion-Torres-Hannoi\\server\\routes\\routes-index.js"
+      }
+    }
   }
 ]

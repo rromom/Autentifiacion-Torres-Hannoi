@@ -47,14 +47,11 @@ router.post('/login', (req, res) => {
 
 })
 
-
 router.get('/register', async(req, res) => {
 
     let consult = await consulta();
 
-    res.render('register', { layout: 'index', genero: consult.genero, figura: consult.figura, etnia: consult.etnia });
-
-
+    res.render('register',{ layout: 'index', genero: consult.genero, figura: consult.figura, etnia: consult.etnia });
 
 });
 
@@ -106,14 +103,14 @@ router.post('/register', async(req = request, res = response) => {
 
 router.get('/game', (req, res) => {
 
-    res.render('game', { layout: 'index' });
+    res.render('sesion', { layout: 'index' });
 });
 
 const consulta = async() => {
     let sql = 'SELECT `id_gen`,`name_gen` FROM `genero`';
     let sql1 = 'SELECT `id_figura`,`name_figura` FROM `figura`'
     let sql2 = 'SELECT `id_etnia`,`name_etnia` FROM `etnia`';
-    const result = await pool.query(sql)
+    const result = await pool.query(sql);
     const result1 = await pool.query(sql1);
     const result2 = await pool.query(sql2);
     let genero = [];

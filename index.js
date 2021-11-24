@@ -51,4 +51,4 @@ app.use(require('./server/routes/routes-index'))
 // });
 
 
-app.listen(process.env.PORT, () => console.log(`http://localhost`));
+app.listen(process.env.PORT, () => console.log(`http://localhost:${process.env.PORT}`));
