@@ -35,21 +35,6 @@ router.get('/sesion', (req, res) => {
     res.render('sesion', { layout: 'index', texto: req.query.text, user: req.query.user });
 })
 
-router.post('/login', (req, res) => {
-    const { email, password } = req.body
-    console.log(req.body);
-    try {
-        //TODO: Hacer logeo
-        console.log(req.body)
-        throw new Error('sas')
-
-    } catch (error) {
-        req.flash('error', 'Error en el servidor');
-        res.redirect('/login')
-    }
-
-})
-
 router.get('/register', async(req, res) => {
 
     let consult = await consulta();
