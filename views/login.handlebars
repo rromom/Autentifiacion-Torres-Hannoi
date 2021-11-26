@@ -1,16 +1,49 @@
-<form action="/ingreso" method="post">
-<div class="form-group" >
-  <label class="form-label mt-4">Floating labels</label>
-  <div class="form-floating mb-3">
-    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
-    <label for="floatingInput">Email address</label>
-  </div>
-  <div class="form-floating">
-    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-    <label for="floatingPassword">Password</label>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6">
+
+        
+
+        <div class="card">
+            <div class="card border-success mb-3">
+                <div class="card-header">
+                    <div class="text-center">
+                        <img class="card-img-top center-block" src="resources/lv1.png" alt="Card image cap" style="height: 150px; width: 150px;">
+                    </div>
+                </div>
+                <div class="card-body border-success bg-success text-white  ">
+                    <h2 class="card-title text-center"> INICIAR SESION</h2>
+                    <p class="card-text "> 
+
+                    <form action="/ingreso" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="form-label mt-4"> <b>Correo Electronico</b></label>
+                            <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="form-label mt-4"><b>Contraseña</b></label>
+                            <input type="password" class="form-control" name="psw" id="psw" placeholder="Ingresa tu contraseña">
+                        </div> <br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-light btn-outline-dark"><b>INGRESAR</b></button>
+                        </div>
+                    </form>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        {{#if errores}}
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>{{errores.credencial}}</strong> 
+            </div>
+        {{/if}}
+
+    </div>
+    <div class="col">
+    </div>
   </div>
 </div>
-<button type="submit">
-    INGRESAR
-</button>
-</form>
