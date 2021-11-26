@@ -15,26 +15,29 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/ingreso', async(req, res) => {
-    console.log("llega");
-    let body = req.body;
-    let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + body.email + '" AND `password_user`="' + body.password + '" AND `id_figura`=' + body.figure + ' AND `number_user`=' + body.disk;
+    const { email, password } = req.body
+    console.log(email+" "+password);
+    let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + email + '" AND `password_user`="' + password+"\"";
+    console.log(sql);
     let result = await pool.query(sql);
+    
     let texto;
     if (result.length == 1) {
-        texto = "WELCOME"
+        console.log("entra");
+        texto = "BIENVENIDO"
         res.redirect(`/sesion?text=${texto}&user=${result[0].nick_user}`);
-    } else {
-        req.flash('error', 'Credenciales no validas');
-        res.redirect('/login');
-    }
+     } else {
+         req.flash('error', 'Credenciales no validas');
+         res.redirect('/login');
+     }
 });
 router.get('/sesion', (req, res) => {
     res.render('sesion', { layout: 'index', texto: req.query.text, user: req.query.user });
 })
+
 router.post('/login', (req, res) => {
     const { email, password } = req.body
     console.log(req.body);
-
     try {
         //TODO: Hacer logeo
         console.log(req.body)
