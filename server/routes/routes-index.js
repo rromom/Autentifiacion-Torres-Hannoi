@@ -19,6 +19,7 @@ router.post('/ingreso', async(req, res) => {
     console.log(email+" "+password);
     let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + email + '" AND `password_user`="' + password+"\"";
     console.log(sql);
+
     let result = await pool.query(sql);
     
     let texto;
@@ -36,58 +37,35 @@ router.get('/sesion', (req, res) => {
 })
 
 router.get('/register', async(req, res) => {
-
-    let consult = await consulta();
-
-    res.render('register',{ layout: 'index', genero: consult.genero, figura: consult.figura, etnia: consult.etnia });
-
+    res.render('register',{layout:'index'});
 });
 
 router.post('/register', async(req = request, res = response) => {
-    let consult = await consulta();
-    let body = req.body;
-    let sql2 = 'SELECT `email_user`,`nick_user` FROM `usuario` WHERE `email_user`="' + body.email + '" OR `nick_user`="' + body.nickname + '"';
-    const result2 = await pool.query(sql2);
+    let {nickname,nombre,apellido,email,pwd} = req.body;
+    let sql = "SELECT  `email_user`, `nick_user` FROM `usuario` Where email_user='"+email+"' OR nick_user='"+nickname+"'";
+    const result = await pool.query(sql);
     let errores = {}
-    if (result2.length >= 1) {
-        result2.map(row => {
-            if (row.email_user == body.email) {
+    if (result.length >= 1) {
+        result.map(row => {
+            if (row.email_user == email) {
                 errores.err_email = "correo ya registrado";
             }
-            if (row.nick_user == body.nickname) {
+            if (row.nick_user == nickname) {
                 errores.err_nick = "Nickname ya resgistrado";
             }
-
         });
     }
-    //Valdiar cedula
-    let flag = validar_cedula(body.cedula);
-    if (!flag) {
-        errores.err_ci = "Cedula no valida";
-    }
-    flag = validar_clave(body.pass1, body.pass2);
-    if (!flag) {
-        errores.err_pass = "Las constraseñas no coinciden";
-    }
-
+    
     if (Object.keys(errores).length === 0) {
-        let insert = 'INSERT INTO `usuario`(`email_user`, `nick_user`, `id_etnia`, `id_gen`, `id_figura`, `names_user`, `last_user`, `ci_user`, `password_user`, `number_user`, `country_user`, `province_user`, `sector_user`, `phone_user`, `edad_user`) VALUES ' +
-            '("' + body.email + '","' + body.nickname + '",' + body.etn + ',' + body.genre + ',' + body.fig + ',"' + body.name + '","' + body.lastname + '","' + body.cedula + '","' + body.pass1 + '",' + body.disk + ',"' + body.country + '","' + body.prov + '","' + body.city + '","' + body.phone + '",' + body.year + ')';
-        let insertar = await pool.query(insert);
+        let insert = 'INSERT INTO `usuario`(`email_user`, `nick_user`,  `names_user`, `last_user`, `password_user`) VALUES ' +
+            '("' + email + '","' +nickname + '","' +nombre + '","' +apellido+ '","' +pwd + '")';
+        await pool.query(insert);
         res.redirect('/login');
     } else {
-        res.render('register', {
-            layout: 'index',
-            genero: consult.genero,
-            figura: consult.figura,
-            etnia: consult.etnia,
-            err_email: errores.err_email,
-            err_nick: errores.err_nick,
-            err_ci: errores.err_ci,
-            err_pass: errores.err_pass
-        });
+        res.render('register',{layout:'index',errores:errores,nombre,apellido});
     }
 })
+
 
 router.get('/game', (req, res) => {
 

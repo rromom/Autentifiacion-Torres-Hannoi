@@ -1,178 +1,73 @@
-<div class="px-5 mx-64 my-5">
-    <h2 class="text-4xl text-center font-bold">Registro de usuario</h2>
-    <div class="p-2 my-5">
-        <form class="space-y-4 text-gray-700" method="POST" action="/register">
-            <div class="mb-3">
-                <h3 class="text-xl font-bold">Datos personales</h3>
-                <p class="">Esta informacion solo se usara de modo informativa</p>
-                <hr class="mb-5" />
-                <fieldset class="bg-blue-100 py-5">
-                <div class="flex flex-wrap mx-5 mb-2">
-                    <div class="w-full">
-                    <label class="block mb-1" for="nick">Nick</label>
-                    <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="nickname" id="nick"/>
-                    {{#if err_nick}}
-                    <label class="block mb-1 " style="color:red;" for="email">{{err_nick}}</label>
-                    {{/if}}
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-5 mb-2 space-y-4 md:space-y-0">
-                    <div class="w-full pr-2 w-full md:w-1/2">
-                    <label class="block mb-1" for="formGridCode_name">Nombres</label>
-                    <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" id="formGridCode_name" name="name"/>
-                    </div>
-                    <div class="w-full pl-2 w-full md:w-1/2">
-                    <label class="block mb-1" for="formGridCode_last">Apellidos</label>
-                    <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" id="formGridCode_last" name="lastname"/>
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-5 mb-2">
-                    <div class="w-full">
-                    <label class="block mb-1" for="email">Correo electronico</label>
-                    <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="email" name="email" id="email"/>
-                    {{#if err_email}}
-                    <label class="block mb-1 " style="color:red;" for="email">{{err_email}}</label>
-                    {{/if}}
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-5 mb-2">
-                    <div class="w-full">
-                    <label class="block mb-1" for="cedula">Cedula</label>
-                    <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="cedula" id="cedula"/>
-                    </div>
-                    {{#if err_ci}}
-                    <label class="block mb-1 " style="color:red;" for="email">{{err_ci}}</label>
-                    {{/if}}
-                </div>
-                <div class="flex flex-wrap mx-5 mb-2 space-y-4 md:space-y-0">
-                    <div class="w-full pr-2 w-full md:w-1/2">
-                    <label class="block mb-1" for="pass1">Contraseña</label>
-                    <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="password" id="pass1" name="pass1"/>
-                    {{#if err_pass}}
-                    <label class="block mb-1 " style="color:red;" for="email">{{err_pass}}</label>
-                    {{/if}}
-                    </div>
-                    <div class="w-full pl-2 w-full md:w-1/2">
-                    <label class="block mb-1" for="pass2">Confirme su contraseña</label>
-                    <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="password" id="pass2" name="pass2"/>
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-5 mb-2">
-                    <div class="w-full">
-                        <label class="block mb-1">Genero:</label>
-                        <div class="form-check">
-                            {{#each genero}}
-                            <input class="form-check-input" type="radio" name="genre" id="genre" value="{{id}}" checked>
-                            <label class="form-check-label" for="genre">
-                                {{gen}}
-                            </label>
-                            <br> {{/each}}
-                        </div>
-                        </label>
-                    </div>
-                    <div class="w-full">
-                        <label class="block mb-1">Etnia:</label>
-                        
-                    <select id="etn" name="etn" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                {{#each etnia}}
-                                    <option value="{{id}}">{{etn}}</option>
-                                {{/each}}
-                    </select>
-                        </label>
-                    </div>
-                    <div class="w-full">
-                        <label class="block mb-1">Edad:</label>
-                        <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"  min=15 type="number" id="year" name="year"/>
-                        </label>
-                    </div>
-                    <div class="w-full">
-                        <label class="block mb-1">Celular:</label>
-                        <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"  min=10 type="text" id="phone" name="phone"/>
-                        </label>
-                    </div>
-
-                </div>
-                </fieldset>
-            </div>
-
-            <div class="mb-3">
-                <h3 class="text-xl font-bold">Residencia</h3>
-                <p class="">Informacion sobre su ubicacion geografica</p>
-                <hr class="mb-5" />
-                <fieldset class="bg-blue-100 py-5">
-                    <div class="flex flex-wrap mx-5 mb-2">
-                        <div class="w-full">
-                            <label for="country" class="block mb-1">Pais</label>
-                            <select id="country" name="country" autocomplete="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                <option>Ecuador</option>
-                                <option>Colombia</option>
-                                <option>Mexico</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap mx-5 space-y-4 md:space-y-0">
-                        <div class="w-full pr-2 md:w-1/3">
-                        <label class="block mb-1" for="formGridCode_month">Ciudad</label>
-                        <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="city" id="formGridCode_month"/>
-                        </div>
-                        <div class="w-full px-2 md:w-1/3">
-                        <label class="block mb-1" for="formGridCode_year">Provincia</label>
-                        <input required class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="prov" id="formGridCode_year"/>
-                    </div>
-                </fieldset>
-            </div>
-
-            <div class="mb-3">
-                <h3 class="text-xl font-bold">Datos de autenticacion</h3>
-                <p class="">Informacion sobre sus gustos para autenticar</p>
-                <hr class="mb-5" />
-            </div>
-            <fieldset class="bg-blue-100 py-5">
-                <div class="mb-3">
-                    <div class="flex flex-wrap mx-5 mb-2">
-                        <div class="w-full">
-                            <label for="fig" class="block mb-1">Figura</label>
-                            <p class="text-sm text-gray-500">
-                                Esta sera la figura que utilizara para la autenticacion, debe seleccionar la misma cuando inicie sesion.
-                            </p>
-                            <select id="fig" name="fig" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                {{#each figura}}
-                                    <option value="{{id}}">{{fig}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-5 mb-2">
-                    <div class="w-full">
-                        <label class="block mb-1">Numero de discos:</label>
-                        <p class="text-sm text-gray-500">
-                            Este numero se utilizara para su autenticacion. Ingreselo cuando vaya a iniciar sesion.
-                        </p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="disk" id="disk" checked value="3">
-                            <label class="form-check-label" for="disk">
-                                3
-                            </label><br />
-                            <input class="form-check-input" type="radio" name="disk" id="disk" checked value="4">
-                            <label class="form-check-label" for="disk">
-                                4
-                            </label><br />
-                            <input class="form-check-input" type="radio" name="disk" id="disk" checked value="5">
-                            <label class="form-check-label" for="disk">
-                                5
-                            </label><br />
-
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <button type="submit" class="px-4 font-bold text-white bg-indigo-600 rounded p-2 focus:bg-indigo-700">
-                Registrar
-            </button>
-        </form>
+<div class="container">
+  <div class="row">
+    <div class="col">
     </div>
+    <div class="col-6">
+
+        {{#if errores}}
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>{{errores.err_email}}</strong> 
+            </div>
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>{{errores.err_nick}}</strong> 
+            </div>
+        {{/if}}
+
+        <div class="card">
+            <div class="card border-success mb-3">
+                <div class="card-header">
+                    <div class="text-center">
+                        <img class="card-img-top center-block" src="resources/lv1.png" alt="Card image cap" style="height: 150px; width: 150px;">
+                    </div>
+                </div>
+                <div class="card-body border-success bg-success text-white  ">
+                    <h2 class="card-title text-center"> REGISTRO</h2>
+                    <p class="card-text "> 
+
+                    <form action="/register" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="form-label mt-4"> <b>Nombre de Usuario</b></label>
+                            <input type="text" class="form-control" name="nickname" id="nickname" aria-describedby="emailHelp" placeholder="Ingresa tu nombre de usuario">
+                            <small id="emailHelp"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="exampleInputEmail1" class="form-label mt-4"> <b>Nombre</b></label>
+                                    <input type="text" class="form-control" value="{{nombre}}" name="nombre" id="nombre" aria-describedby="emailHelp" placeholder="Ingresa tu nombre">
+                                </div>
+                                <div class="col">
+                                    <label for="exampleInputEmail1" class="form-label mt-4"> <b>Apellido</b></label>
+                                    <input type="text" class="form-control" value="{{apellido}}" name="apellido" id="apellido" aria-describedby="emailHelp" placeholder="Ingresa tu apellido">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="form-label mt-4"> <b>Correo Electronico</b></label>
+                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
+                            <small id="emailHelp">No compartiremos tu correo con nadie</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="form-label mt-4"><b>Contraseña</b></label>
+                            <input type="password" class="form-control" name="psw" id="psw" placeholder="Ingresa tu contraseña">
+                        </div> <br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-light btn-outline-dark"><b>INGRESAR</b></button>
+                        </div>
+                    </form>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
 </div>
 
 

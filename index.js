@@ -18,6 +18,7 @@ app.use(flash())
 
 app.use(express.static('public'))
 
+
 app.set('view engine', 'handlebars');
 
 app.engine('handlebars', handlebars({
@@ -32,23 +33,6 @@ app.use((req, res, next) => {
 app.use(require('./server/routes/routes-index'))
 
 
-
-// app.get('/', (req, res) => {
-//     res.render('main', { layout: 'index' });
-// });
-// app.get('/login', (req, res) => {
-
-//     res.render('login', { layout: 'index' });
-// });
-// app.get('/register', (req, res) => {
-
-//     res.render('register', { layout: 'index' });
-// });
-
-// app.get('/game', (req, res) => {
-
-//     res.render('game', { layout: 'index' });
-// });
 
 
 app.listen(process.env.PORT, () => console.log(`http://localhost:${process.env.PORT}`));
