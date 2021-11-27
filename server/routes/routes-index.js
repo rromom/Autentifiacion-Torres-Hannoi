@@ -15,8 +15,9 @@ router.get('/login', (req, res) => {
 router.post('/ingreso', async(req, res) => {
     const { email, psw } = req.body
     let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + email + '" AND `password_user`="' + psw+"\"";
-    
-    let result = await pool.query(sql);
+    let result = await pool.query(sql,(err,result,fields)=>{
+        console.log(err);
+    });
     let texto;
     if (result.length == 1) {
         texto = "BIENVENIDO";
@@ -38,7 +39,9 @@ router.get('/register', async(req, res) => {
 router.post('/register', async(req = request, res = response) => {
     let {nickname,nombre,apellido,email,pwd} = req.body;
     let sql = "SELECT  `email_user`, `nick_user` FROM `usuario` Where email_user='"+email+"' OR nick_user='"+nickname+"'";
-    const result = await pool.query(sql);
+    const result = await pool.query(sql,(err,result,fields)=>{
+        console.log(err);
+    });
     let errores = {}
     if (result.length >= 1) {
         result.map(row => {
