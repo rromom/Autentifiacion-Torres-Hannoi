@@ -14,11 +14,19 @@ router.get('/login', (req, res) => {
 
 router.post('/ingreso', async(req, res) => {
     const { email, psw } = req.body
-    let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + email + '" AND `password_user`="' + psw+"\"";
-    let result = await pool.query(sql,(err,result,fields)=>{
-        console.log(err);
-    });
+    
+    let sql = 'SELECT * FROM `usuario` WHERE `email_user`=? AND `password_user`=?';
+    let result = await pool.query(sql,[`${email}`,`${psw}`]);
+    
+    
+
+
+    //let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + email + '" AND `password_user`="' + psw+"\"";
+    //let result = await pool.query(sql);
+    
     let texto;
+
+    console.log(result.length);
     if (result.length == 1) {
         texto = "BIENVENIDO";
         res.render(`sesion`,{layout:'index',texto,nick:result[0].nick_user});
@@ -38,12 +46,11 @@ router.get('/register', async(req, res) => {
 
 router.post('/register', async(req = request, res = response) => {
     let {nickname,nombre,apellido,email,pwd} = req.body;
-    let sql = "SELECT  `email_user`, `nick_user` FROM `usuario` Where email_user='"+email+"' OR nick_user='"+nickname+"'";
-    const result = await pool.query(sql,(err,result,fields)=>{
-        console.log(err);
-    });
+    //let sql = "SELECT  `email_user`, `nick_user` FROM `usuario` Where email_user='"+email+"' OR nick_user='"+nickname+"'";
+    let sql = "SELECT  `email_user`, `nick_user` FROM `usuario` Where `email_user`=? OR `nick_user`=?";
+    const result = await pool.query(sql,[`${email}`,`${nickname}`]);
     let errores = {}
-    if (result.length >= 1) {
+    if (result.length == 1) {
         result.map(row => {
             if (row.email_user == email) {
                 errores.err_email = "correo ya registrado";
@@ -55,9 +62,10 @@ router.post('/register', async(req = request, res = response) => {
     }
     
     if (Object.keys(errores).length === 0) {
-        let insert = 'INSERT INTO `usuario`(`email_user`, `nick_user`,  `names_user`, `last_user`, `password_user`) VALUES ' +
-            '("' + email + '","' +nickname + '","' +nombre + '","' +apellido+ '","' +pwd + '")';
-        await pool.query(insert);
+        //let insert = 'INSERT INTO `usuario`(`email_user`, `nick_user`,  `names_user`, `last_user`, `password_user`) VALUES ' +
+            //'("' + email + '","' +nickname + '","' +nombre + '","' +apellido+ '","' +pwd + '")';
+            let insert = 'INSERT INTO `usuario`(`email_user`, `nick_user`,  `names_user`, `last_user`, `password_user`) VALUES  ( ? , ? , ? , ? , ? )';
+        await pool.query(insert, [`${email}`,`${nickname}`,`${nombre}`,`${apellido}`,`${pwd}`]);
         res.redirect('/login');
     } else {
         res.render('register',{layout:'index',errores:errores,nombre,apellido});
