@@ -22,7 +22,7 @@
     crossorigin="anonymous"
   ></link>
 
-  <title>Hanoi Tower</title>
+  <title>Banca Vialynk</title>
 </head>
 
 <body class="flex flex-col h-screen justify-between">
@@ -32,9 +32,27 @@
         <a
           class="navbar-brand"
           href="/"
-        >
+        > 
         <img src="resources/logo-vilynk.png" alt="Hannoi Auth" class="bg-white" style="height: 50px;width: 175px;border-radius: 25px;" >
         </a>
+
+
+        <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link {{active1}}" href="/">Nosotros
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{active2}}" href="/creditos">Créditos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{active3}}" href="/inversiones">Inversiones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{active4}}" href="/servicios">Servicios</a>
+        </li>
+      </ul>
+
 
         
           <form class="d-flex">
@@ -44,8 +62,6 @@
             <a href="/register">
               <button type="button" class="btn mx-1  btn-light btn-outline-dark text-monospace ">REGISTRO</button>
             </a>
-            
-
           </form>
         </div>
       </div>
@@ -57,16 +73,44 @@
     {{{body}}}
   </div>
   
-  <footer class="bg-success">
-    <div class="container mx-auto px-6">
-      <div class="mt-5 border-gray-300 flex flex-col items-center">
-        <div class="sm:w-2/3 text-center py-6">
-          <p class="text-sm text-white font-bold mb-2">© 2021</p>
-          <p class="text-sm text-white font-bold mb-2"> Ricardo Romo</p>
+<footer class="bg-success text-center">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/vialynk" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-dark m-1" href="https://twitter.com/VialynkSA" target="_blank" role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/vialynksa/?hl=es-la" target="_blank" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-dark btn-floating m-1" href="https://www.linkedin.com/company/vialynk/" target="_blank" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/rromom" target="_blank" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
         </div>
-      </div>
-    </div>
-  </footer>
+        <div class="text-center p-3">
+          © 2022 Copyright:
+          <a class="" href="https://www.vialynk.com/">VIALYNK</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
   
   <script
     type="text/javascript"

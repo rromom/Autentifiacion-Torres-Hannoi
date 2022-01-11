@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"></meta>
+
+  <link
+    href="css/style.css"
+    type="text/css"
+    rel="stylesheet"
+  ></link>
+
+  <link
+    href="css/bootstrap.min.css"
+    type="text/css"
+    rel="stylesheet"
+  ></link>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous"
+  ></link>
+
+  <title>Banca Vialynk</title>
+</head>
+
+<body class="flex flex-col h-screen justify-between">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand"
+          href="/"
+        > 
+        <img src="resources/logo-vilynk.png" alt="Hannoi Auth" class="bg-white" style="height: 50px;width: 175px;border-radius: 25px;" >
+        </a>        
+          <form class="d-flex">
+            <a href="/login">
+            <button type="button" class="btn mx-1  btn-light btn-outline-dark text-monospace ">LOG OUT</button>
+            </a>
+            
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mt-5 mx-5 md-5 mb-5">
+    {{navigation }}
+    {{{body}}}
+  </div>
+  
+  <footer class="bg-success">
+    <div class="container mx-auto px-6">
+      <div class="mt-5 border-gray-300 flex flex-col items-center">
+        <div class="sm:w-2/3 text-center py-6">
+          <p class="text-sm text-white font-bold mb-2">© 2021</p>
+          <p class="text-sm text-white font-bold mb-2"> Ricardo Romo</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script
+    type="text/javascript"
+    src="src/phaser.js"
+  ></script>
+
+  <script
+    type="text/javascript"
+    src="src/Stopwatch.js"
+  ></script>
+
+  <script
+    type="text/javascript"
+    src="src/Game.js"
+  ></script>
+</body>
+</html>

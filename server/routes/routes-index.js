@@ -5,8 +5,20 @@ const pool = require('../database')
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('main', { layout: 'index' });
+    res.render('main', { layout: 'index',active1:'active'});
 });
+
+router.get('/creditos',(req,res)=>{
+    res.render('creditos',{ layout:'index', active2:'active'});
+})
+
+router.get('/inversiones',(req,res)=>{
+    res.render('inversiones',{ layout:'index', active3:'active'});
+})
+
+router.get('/servicios',(req,res)=>{
+    res.render('servicios',{ layout:'index', active4:'active'});
+})
 
 router.get('/login', (req, res) => {
     res.render('login', { layout: 'index', error: req.flash('error') });
@@ -17,9 +29,6 @@ router.post('/ingreso', async(req, res) => {
     
     let sql = 'SELECT * FROM `usuario` WHERE `email_user`=? AND `password_user`=?';
     let result = await pool.query(sql,[`${email}`,`${psw}`]);
-    
-    
-
 
     //let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + email + '" AND `password_user`="' + psw+"\"";
     //let result = await pool.query(sql);
@@ -37,7 +46,7 @@ router.post('/ingreso', async(req, res) => {
      }
 });
 router.get('/sesion', (req, res) => {
-    res.render('sesion', { layout: 'index', texto: req.query.text, user: req.query.user });
+    res.render('sesion', { layout: 'dashboard', texto: req.query.text, user: req.query.user });
 })
 
 router.get('/register', async(req, res) => {

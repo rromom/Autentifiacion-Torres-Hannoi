@@ -22,6 +22,7 @@ app.use(express.static('public'))
 app.set('view engine', 'handlebars');
 
 app.engine('handlebars', handlebars({
+    defaultLayout: false,
     layoutsDir: __dirname + '/views/layouts',
 }));
 
