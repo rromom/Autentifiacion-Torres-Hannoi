@@ -38,7 +38,7 @@ router.post('/ingreso', async(req, res) => {
     console.log(result.length);
     if (result.length == 1) {
         texto = "BIENVENIDO";
-        res.render(`sesion`,{layout:'index',texto,nick:result[0].nick_user});
+        res.render(`sesion`,{layout:'dashboard',texto,nick:result[0].nick_user});
      } else {
          let errores={};
          errores.credencial='Credenciales no validas';
