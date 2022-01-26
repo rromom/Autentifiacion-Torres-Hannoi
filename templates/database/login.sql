@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-01-2022 a las 21:12:07
+-- Tiempo de generación: 26-01-2022 a las 21:38:48
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -110,17 +110,6 @@ CREATE TABLE `usuario` (
   `phone_user` varchar(15) DEFAULT NULL,
   `edad_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`id_usuario`, `email_user`, `nick_user`, `id_etnia`, `id_gen`, `id_figura`, `names_user`, `last_user`, `ci_user`, `password_user`, `number_user`, `country_user`, `province_user`, `sector_user`, `phone_user`, `edad_user`) VALUES
-(1, 'rromom@est.ups.edu.ec', 'Ricardo', 1, 1, 1, 'Ricardo', 'Romo', '1718976606', 'QWERasdf1234.', 3, 'Ecuador', 'pichincha', 'quito', '0979216418', 23),
-(2, 'rromom@vialynk', 'rromom', NULL, NULL, NULL, 'Ricardo', 'Romo', NULL, 'QWERasdf1234.', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'stalintipan@gmail.com', 'stipan', NULL, NULL, NULL, 'Stalin', 'Tipan', NULL, 'QWERasdf1234.', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'davidruiz@gmail.com', 'David', NULL, NULL, NULL, 'David', 'Ruiz', NULL, 'undefined', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'guillermo.garcia@gmail.com', 'Guillermo', NULL, NULL, NULL, 'Guillermo', 'García', NULL, 'undefined', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
