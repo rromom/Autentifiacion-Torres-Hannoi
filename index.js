@@ -9,7 +9,7 @@ const app = express();
 
 env.config();
 app.use(morgan('dev'));
-app.use(session({ secret: 'super-secret-key', resave: true, saveUninitialized: true, cookie: { secure: true } }))
+app.use(session({ secret: 'super-secret-key', resave: true, saveUninitialized: true }))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(flash())

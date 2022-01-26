@@ -5,21 +5,27 @@
     <div class="col-6">
 
         
+        {{#if errores}}
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>{{errores.credencial}}</strong> 
+            </div>
+        {{/if}}
 
         <div class="card">
-            <div class="card border-success mb-3">
+            <div class="card     mb-3">
                 <div class="card-header">
                     <div class="text-center">
                         <img class="card-img-top center-block" src="resources/lv1.png" alt="Card image cap" style="height: 150px; width: 150px;">
                     </div>
                 </div>
-                <div class="card-body border-success bg-success text-white  ">
+                <div class="card-body bg-my-green text-white  ">
                     <h2 class="card-title text-center"> INICIAR SESION</h2>
                     <p class="card-text "> 
 
                     <form action="/ingreso" method="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="form-label mt-4"> <b>Correo Electronico</b></label>
+                            <label for="exampleInputEmail1" class="form-label mt-4"> <b>Correo Electrónico</b></label>
                             <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
                         </div>
                         <div class="form-group">
@@ -35,12 +41,6 @@
             </div>
         </div>
 
-        {{#if errores}}
-            <div class="alert alert-dismissible alert-danger">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <strong>{{errores.credencial}}</strong> 
-            </div>
-        {{/if}}
 
     </div>
     <div class="col">

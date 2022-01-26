@@ -8,6 +8,21 @@
     justify-content: center;
 }
 
-.bg-my-blue {
-    background-color: #00246E;
+.bg-my-green {
+    /* background-color: #62b311 !important; */
+    background-color: #84cc3c !important;
+    /* background-color: #6e9f3c !important; */
+    /* background-color: #96b242 !important; */ 
+}
+
+.texto-justify{
+    text-justify: newspaper !important;
+}
+
+.texto-color{
+    color: #84cc3c !important;
+}
+
+.bg-infor{
+    background-color: lightblue !important;
 }
