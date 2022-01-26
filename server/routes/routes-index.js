@@ -54,7 +54,7 @@ router.get('/register', async(req, res) => {
 });
 
 router.post('/register', async(req = request, res = response) => {
-    let {nickname,nombre,apellido,email,pwd} = req.body;
+    let {nickname,nombre,apellido,email,psw} = req.body;
     //let sql = "SELECT  `email_user`, `nick_user` FROM `usuario` Where email_user='"+email+"' OR nick_user='"+nickname+"'";
     let sql = "SELECT  `email_user`, `nick_user` FROM `usuario` Where `email_user`=? OR `nick_user`=?";
     const result = await pool.query(sql,[`${email}`,`${nickname}`]);
@@ -74,7 +74,7 @@ router.post('/register', async(req = request, res = response) => {
         //let insert = 'INSERT INTO `usuario`(`email_user`, `nick_user`,  `names_user`, `last_user`, `password_user`) VALUES ' +
             //'("' + email + '","' +nickname + '","' +nombre + '","' +apellido+ '","' +pwd + '")';
             let insert = 'INSERT INTO `usuario`(`email_user`, `nick_user`,  `names_user`, `last_user`, `password_user`) VALUES  ( ? , ? , ? , ? , ? )';
-        await pool.query(insert, [`${email}`,`${nickname}`,`${nombre}`,`${apellido}`,`${pwd}`]);
+        await pool.query(insert, [`${email}`,`${nickname}`,`${nombre}`,`${apellido}`,`${psw}`]);
         res.redirect('/login');
     } else {
         res.render('register',{layout:'index',errores:errores,nombre,apellido});
