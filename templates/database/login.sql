@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-05-2021 a las 06:00:09
--- Versión del servidor: 10.4.13-MariaDB
--- Versión de PHP: 7.2.32
+-- Tiempo de generación: 26-01-2022 a las 21:12:07
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `hanoi`
+-- Base de datos: `login`
 --
 
 -- --------------------------------------------------------
@@ -96,20 +96,31 @@ CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `email_user` varchar(50) NOT NULL,
   `nick_user` varchar(25) NOT NULL,
-  `id_etnia` int(11) NOT NULL,
-  `id_gen` int(11) NOT NULL,
-  `id_figura` int(11) NOT NULL,
-  `names_user` varchar(50) NOT NULL,
-  `last_user` varchar(50) NOT NULL,
-  `ci_user` varchar(10) NOT NULL,
-  `password_user` varchar(50) NOT NULL,
-  `number_user` int(11) NOT NULL,
-  `country_user` varchar(25) NOT NULL,
-  `province_user` varchar(35) NOT NULL,
-  `sector_user` varchar(50) NOT NULL,
-  `phone_user` varchar(15) NOT NULL,
-  `edad_user` int(11) NOT NULL
+  `id_etnia` int(11) DEFAULT NULL,
+  `id_gen` int(11) DEFAULT NULL,
+  `id_figura` int(11) DEFAULT NULL,
+  `names_user` varchar(50) DEFAULT NULL,
+  `last_user` varchar(50) DEFAULT NULL,
+  `ci_user` varchar(10) DEFAULT NULL,
+  `password_user` varchar(50) DEFAULT NULL,
+  `number_user` int(11) DEFAULT NULL,
+  `country_user` varchar(25) DEFAULT NULL,
+  `province_user` varchar(35) DEFAULT NULL,
+  `sector_user` varchar(50) DEFAULT NULL,
+  `phone_user` varchar(15) DEFAULT NULL,
+  `edad_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `email_user`, `nick_user`, `id_etnia`, `id_gen`, `id_figura`, `names_user`, `last_user`, `ci_user`, `password_user`, `number_user`, `country_user`, `province_user`, `sector_user`, `phone_user`, `edad_user`) VALUES
+(1, 'rromom@est.ups.edu.ec', 'Ricardo', 1, 1, 1, 'Ricardo', 'Romo', '1718976606', 'QWERasdf1234.', 3, 'Ecuador', 'pichincha', 'quito', '0979216418', 23),
+(2, 'rromom@vialynk', 'rromom', NULL, NULL, NULL, 'Ricardo', 'Romo', NULL, 'QWERasdf1234.', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'stalintipan@gmail.com', 'stipan', NULL, NULL, NULL, 'Stalin', 'Tipan', NULL, 'QWERasdf1234.', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'davidruiz@gmail.com', 'David', NULL, NULL, NULL, 'David', 'Ruiz', NULL, 'undefined', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'guillermo.garcia@gmail.com', 'Guillermo', NULL, NULL, NULL, 'Guillermo', 'García', NULL, 'undefined', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -168,7 +179,7 @@ ALTER TABLE `genero`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
