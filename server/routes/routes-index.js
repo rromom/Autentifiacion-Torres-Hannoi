@@ -27,11 +27,11 @@ router.get('/login', (req, res) => {
 router.post('/ingreso', async(req, res) => {
     const { email, pwd} = req.body
     
-    let sql = 'SELECT * FROM `usuario` WHERE `email_user`=? AND `password_user`=?';
-    let result = await pool.query(sql,[`${email}`,`${pwd}`]);
+    //  let sql = 'SELECT * FROM `usuario` WHERE `email_user`=? AND `password_user`=?';
+    //  let result = await pool.query(sql,[`${email}`,`${pwd}`]);
 
-    //let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + email + '" AND `password_user`="' + pwd+"\"";
-    //let result = await pool.query(sql);
+    let sql = 'SELECT * FROM `usuario` WHERE `email_user`="' + email + '" AND `password_user`="' + pwd+'"';
+    let result = await pool.query(sql);
     
     let texto;
 
