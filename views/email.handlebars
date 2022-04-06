@@ -1,0 +1,24 @@
+{{!-- 
+    <form method="post" action="/">
+    <div class="form-group">
+        <fieldset disabled="">
+            <label class="form-label mt-4" for="inputValid">Valid input</label>
+            <input type="text" value="correct value" class="form-control is-valid" id="inputValid">
+            <div class="valid-feedback">Success! You've done it.</div>
+        </fieldset>
+    </div>
+    </form> --}}
+
+<div class="container">
+    <form method="post" action="/edit/email">
+    
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" name="email" placeholder="Ingresa el nuevo email">
+        <br/>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Cambiar</button>
+    </div>
+    
+    </form>
